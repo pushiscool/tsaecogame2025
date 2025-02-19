@@ -23,7 +23,7 @@ export default function HomeScreen() {
   
  function startGame() {  
   console.log("Button Clicked"); 
-  const clickSound = new Audio('click-sound.mp3');  
+  const clickSound = new Audio('SLOWER.mp3');  
   clickSound.play();  
   alert("Game Started");  
 }  
