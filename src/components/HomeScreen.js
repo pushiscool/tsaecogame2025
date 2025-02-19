@@ -25,8 +25,8 @@ export default function HomeScreen() {
   console.log("Button Clicked"); 
   alert("Game Started");  
    const gameButton = document.getElementById("startGame");  
-    gameButton.innerText = "Click me!";  
-    gameButton.onclick = incrementScore;  
+    startGame.innerText = "Click me!";  
+    startGame.onclick = incrementScore;  
 }  
 
   function incrementScore() {  
