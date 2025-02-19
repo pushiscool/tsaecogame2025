@@ -29,7 +29,7 @@ export default function HomeScreen() {
  return (  
     <div id="homescreen">  
       <h1 className="game-title">Epic Mountain Adventure</h1>  
-      <button onClick={startGame} className="start-button">Start Game</button>  
+      <button onClick={startGame} className="game-story">Start Game</button>  
      <div className="start-button">  
         <p>  
           In a world where the peaks touch the sky and ancient mysteries lie hidden,  
