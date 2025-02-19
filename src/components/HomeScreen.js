@@ -51,7 +51,7 @@ export default function HomeScreen() {
               inset 0 -20px 30px rgba(0, 0, 0, 0.5)
             `,
             borderRadius: "50% 50% 20% 20%",
-            border: "5px solid rgba(0, 0, 0, 0.5)",
+            border: "2px solid rgba(0, 0, 0, 0.5)",
             zIndex: m.isFront ? 2 : -1,
           };
           return <div key={i} style={style} />;
