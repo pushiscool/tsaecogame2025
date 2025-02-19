@@ -117,25 +117,6 @@ body {
   }  
 }  
 
-.rain {  
-  position: absolute;  
-  top: 0;  
-  left: 0;  
-  width: 100%;  
-  height: 100%;  
-  pointer-events: none;  
-  background-image: url('/path/to/rain.png');  
-  animation: rainEffect 0.5s linear infinite;  
-}  
-
-@keyframes rainEffect {  
-  from {  
-    background-position: 0 0;  
-  }  
-  to {  
-    background-position: 0 100%;  
-  }  
-}  
 
 .mountain-container div {  
   background: radial-gradient(  
