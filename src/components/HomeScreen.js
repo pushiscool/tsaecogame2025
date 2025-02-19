@@ -23,13 +23,14 @@ export default function HomeScreen() {
   
   function startGame() {  
     console.log("Game Started");  
+     alert("Game Started");
   }  
   
   return (  
     <div id="homescreen">  
       <h1 className="game-title">Epic Mountain Adventure</h1>  
-      <button onClick={startGame} className="start-button">Start Game</button>  
-      <div className="mountain-container">  
+    <button onClick={startGame} className="start-button">Start Game</button>  
+    <div className="mountain-container">  
         {mountains.map((m, i) => {  
           const style = {  
             position: "absolute",  
