@@ -30,6 +30,8 @@ export default function HomeScreen() {
     <div id="homescreen">  
       <h1 className="game-title">Epic Mountain Adventure</h1>  
     <button onClick={startGame} className="start-button">Start Game</button>  
+    <div className="cloud" />  
+<div className="cloud" />  
     <div className="mountain-container">  
         {mountains.map((m, i) => {  
           const style = {  
