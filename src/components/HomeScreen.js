@@ -4,7 +4,7 @@ import './HomeScreen.css';
 export default function HomeScreen() {  
   const [mountains, setMountains] = useState([]);  
   const [isGameRunning, setIsGameRunning] = useState(false);  
-  const [playerPosition, setPlayerPosition] = useState(0);  
+  const [cloudCount, setCloudCount] = useState(0);  
   
   useEffect(() => {  
     let leftPos = 0;  
@@ -27,21 +27,22 @@ export default function HomeScreen() {
     console.log("Button Clicked");  
     alert("Game Started");  
     setIsGameRunning(true);  
+    setCloudCount(0);  
   }  
   
   useEffect(() => {  
     if (!isGameRunning) return;  
   
-    const interval = setInterval(() => {  
-      setPlayerPosition(pos => pos + 1); // Move the player to the right  
-    }, 100); // Update every 100ms  
+    const cloudInterval = setInterval(() => {  
+      setCloudCount(count => count + 1); // Increment cloud count  
+    }, 3000); // Adjust interval to change cloud appearance rate  
   
-    return () => clearInterval(interval); // Cleanup on component unmount or when game stops  
+    return () => clearInterval(cloudInterval); // Cleanup on component unmount or when game stops  
   }, [isGameRunning]);  
   
   return (  
     <div id="homescreen">  
-      <h1 className="game-title">Epic Mountain Adventure</h1>  
+      <h1 className="game-title">Cloud Counter Game</h1>  
       <button onClick={startGame} className="start-button">Start Game</button>  
       <div className="mountain-container">  
         {mountains.map((m, i) => {  
@@ -71,24 +72,21 @@ export default function HomeScreen() {
         })}  
       </div>  
       <div className="sun" />  
-      {/* Add cloud elements */}  
-      <div className="cloud" style={{ top: '10%', animationDelay: '0s' }} />  
-      <div className="cloud" style={{ top: '15%', animationDelay: '15s' }} />  
-      <div className="cloud" style={{ top: '20%', animationDelay: '30s' }} />  
   
-      {/* Player element */}  
+      {/* Display cloud count */}  
       {isGameRunning && (  
-        <div  
-          className="player"  
-          style={{  
-            position: 'absolute',  
-            bottom: '10px',  
-            left: `${playerPosition}px`,  
-            width: '50px',  
-            height: '50px',  
-            backgroundColor: 'red',  
-          }}  
-        />  
+        <div className="cloud-counter">  
+          Clouds Counted: {cloudCount}  
+        </div>  
+      )}  
+  
+      {/* Add cloud elements */}  
+      {isGameRunning && (  
+        <>  
+          <div className="cloud" style={{ top: '10%', animationDelay: '0s' }} />  
+          <div className="cloud" style={{ top: '15%', animationDelay: '15s' }} />  
+          <div className="cloud" style={{ top: '20%', animationDelay: '30s' }} />  
+        </>  
       )}  
     </div>  
   );  
