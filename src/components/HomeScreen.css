@@ -37,6 +37,14 @@ body {
   opacity: 0;  
 }  
 
+.game-story {  
+  font-size: 2rem;  
+  color: #234;  
+  text-shadow: 2px 2px 4px #000;  
+  animation: titleEntrance 2s ease-out forwards;  
+  opacity: 0;  
+}  
+
 @keyframes titleEntrance {  
   from {  
     transform: translateY(-50px);  
