@@ -63,13 +63,6 @@ export default function HomeScreen() {
       <div className="cloud" style={{ top: '15%', animationDelay: '15s' }} />  
       <div className="cloud" style={{ top: '20%', animationDelay: '30s' }} />  
     </div>  
- <div>  
-        <p>  
-          In a world where the peaks touch the sky and ancient mysteries lie hidden,  
-          you are the chosen adventurer. Brave the treacherous paths, uncover lost  
-          secrets, and harness the power of the mountains. Your journey begins now...  
-          Will you rise to the challenge and become a legend?  
-        </p>  
-      </div>  
+
   );  
 }  
