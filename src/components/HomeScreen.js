@@ -4,7 +4,7 @@ import './HomeScreen.css';
 export default function HomeScreen() {  
   const [mountains, setMountains] = useState([]);  
   const [isGameRunning, setIsGameRunning] = useState(false);  
-  const [cloudCount, setCloudCount] = useState(0);  
+  const [clouds, setClouds] = useState([]);  
   
   useEffect(() => {  
     let leftPos = 0;  
@@ -27,14 +27,17 @@ export default function HomeScreen() {
     console.log("Button Clicked");  
     alert("Game Started");  
     setIsGameRunning(true);  
-    setCloudCount(0);  
+    setClouds([]); // Reset clouds  
   }  
   
   useEffect(() => {  
     if (!isGameRunning) return;  
   
     const cloudInterval = setInterval(() => {  
-      setCloudCount(count => count + 1); // Increment cloud count  
+      setClouds(clouds => [  
+        ...clouds,  
+        { id: clouds.length, top: `${Math.random() * 30 + 10}%` }  
+      ]);  
     }, 3000); // Adjust interval to change cloud appearance rate  
   
     return () => clearInterval(cloudInterval); // Cleanup on component unmount or when game stops  
@@ -76,18 +79,18 @@ export default function HomeScreen() {
       {/* Display cloud count */}  
       {isGameRunning && (  
         <div className="cloud-counter">  
-          Clouds Counted: {cloudCount}  
+          Clouds Counted: {clouds.length}  
         </div>  
       )}  
   
-      {/* Add cloud elements */}  
-      {isGameRunning && (  
-        <>  
-          <div className="cloud" style={{ top: '10%', animationDelay: '0s' }} />  
-          <div className="cloud" style={{ top: '15%', animationDelay: '15s' }} />  
-          <div className="cloud" style={{ top: '20%', animationDelay: '30s' }} />  
-        </>  
-      )}  
+      {/* Render clouds dynamically */}  
+      {isGameRunning && clouds.map(cloud => (  
+        <div  
+          key={cloud.id}  
+          className="cloud"  
+          style={{ top: cloud.top, animationDelay: `${cloud.id * 5}s` }}  
+        />  
+      ))}  
     </div>  
   );  
 }  
