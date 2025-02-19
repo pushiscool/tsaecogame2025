@@ -26,11 +26,11 @@ export default function HomeScreen() {
   alert("Game Started");  
 }  
   
-  return (  
+ return (  
     <div id="homescreen">  
       <h1 className="game-title">Epic Mountain Adventure</h1>  
-    <button onClick={startGame} className="start-button">Start Game</button>  
-    <div className="mountain-container">  
+      <button onClick={startGame} className="start-button">Start Game</button>  
+      <div className="mountain-container">  
         {mountains.map((m, i) => {  
           const style = {  
             position: "absolute",  
@@ -41,9 +41,9 @@ export default function HomeScreen() {
             background: `  
               radial-gradient(  
                 circle at 50% 80%,  
-                #158b34 20%,  
-                #0f6f28 85%,  
-                #0b4d1e 100%  
+                #2e8b57 20%,  /* SeaGreen */  
+                #228b22 60%,  /* ForestGreen */  
+                #006400 100%  /* DarkGreen */  
               )  
             `,  
             boxShadow: `  
@@ -58,6 +58,10 @@ export default function HomeScreen() {
         })}  
       </div>  
       <div className="sun" />  
+      {/* Add cloud elements */}  
+      <div className="cloud" style={{ top: '10%', animationDelay: '0s' }} />  
+      <div className="cloud" style={{ top: '15%', animationDelay: '15s' }} />  
+      <div className="cloud" style={{ top: '20%', animationDelay: '30s' }} />  
     </div>  
   );  
 }  
