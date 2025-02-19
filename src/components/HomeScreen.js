@@ -10,7 +10,7 @@ export default function HomeScreen() {
     "Stay Secure!",  
     "Encrypt Data!",  
     "Update Software!",  
-    "Use Strong Passwords!",  
+    "Strong Passwords!",  
     "Beware of Phishing!",  
     "Backup Regularly!",  
     "Enable 2FA!",  
