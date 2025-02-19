@@ -85,14 +85,13 @@ body {
   z-index: -1;  
 }  
   
-.mountain-container {  
-  position: absolute;  
-  bottom: 0;  
-  left: -40.5%;  
-  width: 300%;  
-  height: 50%;  
-  overflow: hidden;  
-  animation: moveMountains 75s linear infinite alternate;  
+.mountain-container div {  
+  background: radial-gradient(  
+    circle at 50% 80%,  
+    #2e8b57 20%,  /* SeaGreen */  
+    #228b22 60%,  /* ForestGreen */  
+    #006400 100%  /* DarkGreen */  
+  );  
 }  
   
 @keyframes moveMountains {  
@@ -112,14 +111,21 @@ body {
 
 .cloud {  
   position: absolute;  
-  top: 20%;  
-  left: -10%;  
   width: 200px;  
   height: 100px;  
   background: white;  
   border-radius: 50%;  
   opacity: 0.8;  
   animation: moveClouds 90s linear infinite;  
+}  
+  
+@keyframes moveClouds {  
+  from {  
+    transform: translateX(-200px);  
+  }  
+  to {  
+    transform: translateX(100vw);  
+  }  
 }  
   
 @keyframes moveClouds {  
