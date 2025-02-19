@@ -24,12 +24,22 @@ export default function HomeScreen() {
  function startGame() {  
   console.log("Button Clicked"); 
   alert("Game Started");  
+   const gameButton = document.getElementById("startGame");  
+    gameButton.innerText = "Click me!";  
+    gameButton.onclick = incrementScore;  
 }  
+
+  function incrementScore() {  
+    score += 1;  
+    document.getElementById("score").innerText = "Score: " + score;  
+}  
+
   
  return (  
     <div id="homescreen">  
       <h1 className="game-title">Epic Mountain Adventure</h1>  
   <button onClick={startGame} className="start-button">Start Game</button>  
+    <div id="score">Score: 0</div>  
             
       <div className="mountain-container">  
         {mountains.map((m, i) => {  
