@@ -21,10 +21,10 @@ export default function HomeScreen() {
     setMountains(arr);  
   }, []);  
   
-  function startGame() {  
-    console.log("Game Started");  
-     alert("Game Started");
-  }  
+ function startGame() {  
+  console.log("Button Clicked");  
+  alert("Game Started");  
+}  
   
   return (  
     <div id="homescreen">  
