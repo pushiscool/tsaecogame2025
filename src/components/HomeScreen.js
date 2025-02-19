@@ -6,6 +6,18 @@ export default function HomeScreen() {
   const [isGameRunning, setIsGameRunning] = useState(false);  
   const [clouds, setClouds] = useState([]);  
   
+  const messages = [  
+    "Stay Secure!",  
+    "Encrypt Data!",  
+    "Update Software!",  
+    "Use Strong Passwords!",  
+    "Beware of Phishing!",  
+    "Backup Regularly!",  
+    "Enable 2FA!",  
+    "Monitor Networks!",  
+    "Secure Devices!"  
+  ];  
+  
   useEffect(() => {  
     let leftPos = 0;  
     const arr = [];  
@@ -34,9 +46,10 @@ export default function HomeScreen() {
     if (!isGameRunning) return;  
   
     const cloudInterval = setInterval(() => {  
+      const message = messages[Math.floor(Math.random() * messages.length)];  
       setClouds(clouds => [  
         ...clouds,  
-        { id: clouds.length, top: `${Math.random() * 30 + 10}%` }  
+        { id: clouds.length, top: `${Math.random() * 30 + 10}%`, message }  
       ]);  
     }, 3000); // Adjust interval to change cloud appearance rate  
   
@@ -45,7 +58,7 @@ export default function HomeScreen() {
   
   return (  
     <div id="homescreen">  
-      <h1 className="game-title">TSA 2025 Cloud Counter Game</h1>  
+      <h1 className="game-title">Cloud Counter Game</h1>  
       <button onClick={startGame} className="start-button">Start Game</button>  
       <div className="mountain-container">  
         {mountains.map((m, i) => {  
@@ -83,13 +96,26 @@ export default function HomeScreen() {
         </div>  
       )}  
   
-      {/* Render clouds dynamically */}  
+      {/* Render clouds with messages */}  
       {isGameRunning && clouds.map(cloud => (  
         <div  
           key={cloud.id}  
           className="cloud"  
-          style={{ top: cloud.top, animationDelay: `${cloud.id * 5}s` }}  
-        />  
+          style={{  
+            position: 'absolute',  
+            top: cloud.top,  
+            left: `${cloud.id * 10}%`,  
+            width: '150px',  
+            height: '80px',  
+            backgroundColor: 'white',  
+            borderRadius: '50%',  
+            textAlign: 'center',  
+            lineHeight: '80px',  
+            boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',  
+          }}  
+        >  
+          {cloud.message}  
+        </div>  
       ))}  
     </div>  
   );  
