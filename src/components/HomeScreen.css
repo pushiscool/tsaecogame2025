@@ -74,7 +74,16 @@ body {
   background: radial-gradient(circle, #FFD700, #FFA500);  
   border-radius: 50%;  
   z-index: 3;  
-  animation: spin 30s linear infinite;  
+  animation: spin 60s linear infinite; /* Slower spin */  
+}  
+
+@keyframes spin {  
+  from {  
+    transform: rotate(0deg);  
+  }  
+  to {  
+    transform: rotate(360deg);  
+  }  
 }  
   
 .sun::after {  
@@ -96,6 +105,16 @@ body {
   -webkit-mask: radial-gradient(circle, transparent 50%, black 52%);  
   pointer-events: none;  
   z-index: -1;  
+  animation: sunRays 60s linear infinite;  
+}  
+
+@keyframes sunRays {  
+  from {  
+    opacity: 0.9;  
+  }  
+  to {  
+    opacity: 1;  
+  }  
 }  
   
 .mountain-container div {  
