@@ -45,7 +45,7 @@ export default function HomeScreen() {
   
   return (  
     <div id="homescreen">  
-      <h1 className="game-title">Cloud Counter Game</h1>  
+      <h1 className="game-title">TSA 2025 Cloud Counter Game</h1>  
       <button onClick={startGame} className="start-button">Start Game</button>  
       <div className="mountain-container">  
         {mountains.map((m, i) => {  
