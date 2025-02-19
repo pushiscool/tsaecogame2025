@@ -117,18 +117,6 @@ body {
   }  
 }  
 
-@keyframes sunrise {  
-  from {  
-    background-color: #1e3c72; /* Dark blue */  
-  }  
-  to {  
-    background-color: #ffaf7b; /* Warm orange */  
-  }  
-}  
-
-body {  
-  animation: sunrise 10s linear infinite alternate;  
-}  
 
 
 .mountain-container div {  
