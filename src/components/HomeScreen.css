@@ -131,19 +131,14 @@ body {
   opacity: 0.8;  
   animation: moveClouds 90s linear infinite;  
 }  
-  
+
 @keyframes moveClouds {  
   from {  
     transform: translateX(-200px);  
   }  
   to {  
-    transform: translateX(100vw);  
+    transform: translateX(110vw);  
   }  
-}  
-  
-@keyframes moveClouds {  
-  from { transform: translateX(0); }  
-  to { transform: translateX(110vw); }  
 }  
 
 .mountain {  
