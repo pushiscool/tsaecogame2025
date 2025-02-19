@@ -49,11 +49,24 @@ export default function HomeScreen() {
       const message = messages[Math.floor(Math.random() * messages.length)];  
       setClouds(clouds => [  
         ...clouds,  
-        { id: clouds.length, top: `${Math.random() * 30 + 10}%`, message }  
+        { id: clouds.length, top: `${Math.random() * 30 + 5}%`, message }  
       ]);  
     }, 3000); // Adjust interval to change cloud appearance rate  
   
     return () => clearInterval(cloudInterval); // Cleanup on component unmount or when game stops  
+  }, [isGameRunning]);  
+  
+  useEffect(() => {  
+    if (!isGameRunning) return;  
+  
+    const mountainInterval = setInterval(() => {  
+      setMountains(mountains => mountains.map(m => ({  
+        ...m,  
+        left: `${parseFloat(m.left) - 0.1}%`  
+      })));  
+    }, 100); // Adjust speed of mountains moving left  
+  
+    return () => clearInterval(mountainInterval);  
   }, [isGameRunning]);  
   
   return (  
