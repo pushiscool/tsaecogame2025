@@ -30,6 +30,15 @@ export default function HomeScreen() {
     <div id="homescreen">  
       <h1 className="game-title">Epic Mountain Adventure</h1>  
       <button onClick={startGame} className="start-button">Start Game</button>  
+     <div className="start-button">  
+        <p>  
+          In a world where the peaks touch the sky and ancient mysteries lie hidden,  
+          you are the chosen adventurer. Brave the treacherous paths, uncover lost  
+          secrets, and harness the power of the mountains. Your journey begins now...  
+          Will you rise to the challenge and become a legend?  
+        </p>  
+      </div>  
+            
       <div className="mountain-container">  
         {mountains.map((m, i) => {  
           const style = {  
