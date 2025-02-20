@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/2971f499-6a12-4706-8c29-fb53304ffa8f/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/tsaecorescue2025v8",
+    "appService.deploySubpath": ".github"
+}
