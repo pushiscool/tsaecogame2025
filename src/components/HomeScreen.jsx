@@ -500,15 +500,38 @@ export default function HomeScreen() {
         <div className="game-start-screen" style={{ background: 'rgba(0,0,0,0.5)' }}>
           <button className="menu-button" onClick={() => setGameStarted(false)}>Close</button>
           <div className="levels-container">
-          <div className="level-box mountain-box"  
-              onMouseEnter={() => setMountainHovered(true)}  
-              onMouseLeave={() => setMountainHovered(false)}  
-              onClick={() => setOpenLargeMountain(true)}  
-              style={{ transform: mountainHovered ? 'scale(1.05)' : 'scale(1)', transition: 'transform 0.3s ease' }}>  
-          <div className="title-container">  
-            <div className="cover-text" style={{ fontSize: '28px', marginTop: '20px' }}>The Mountain</div>  
-          </div>  
-        </div>  
+   <div className="level-box mountain-box"  
+     onMouseEnter={() => setMountainHovered(true)}  
+     onMouseLeave={() => setMountainHovered(false)}  
+     onClick={() => setOpenLargeMountain(true)}  
+     style={{ transform: mountainHovered ? 'scale(1.05)' : 'scale(1)', transition: 'transform 0.3s ease' }}>  
+  <div className="title-container">  
+    <div className="cover-text" style={{ fontSize: '28px', marginTop: '20px' }}>The Mountain</div>  
+  </div>  
+  <div className="mountain-peaks">  
+    {Array.from({ length: 3 }).map((_, i) => (  
+      <div key={i} className="peak" style={{ left: `${i * 30 + 10}%` }}></div>  
+    ))}  
+  </div>  
+  <div className="clouds">  
+    {Array.from({ length: 4 }).map((_, i) => {  
+      const size = 10 + Math.random() * 20;  
+      return (  
+        <div  
+          key={i}  
+          className="cloud"  
+          style={{  
+            left: `${Math.random() * 100}%`,  
+            top: `${Math.random() * 20 + 10}%`,  
+            width: `${size}px`,  
+            height: `${size}px`,  
+            animationDelay: `${Math.random() * 2}s`  
+          }}  
+        ></div>  
+      );  
+    })}  
+  </div>  
+</div>  
             <div className="level-box"></div>
             <div
               className="level-box water-box"
