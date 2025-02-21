@@ -32,6 +32,9 @@ export default function HomeScreen() {
   const closeLargeMountain = () => setOpenLargeMountain(false);  
 const [openLargeGround, setOpenLargeGround] = useState(false); // New state for Grounds  
 const [groundHovered, setGroundHovered] = useState(false); // New hover state for Grounds 
+  const [skyHovered, setSkyHovered] = useState(false);  
+const [openLargeSky, setOpenLargeSky] = useState(false);  
+  
   const [openLargeSunhorizon, setOpenLargeSunhorizon] = useState(false); // New state for Sunhorizon  
 const [sunhorizonHovered, setSunhorizonHovered] = useState(false); // New hover state for Sunhorizon  
   
@@ -43,6 +46,14 @@ const closeLargeGround = () => {
   setOpenLargeGround(false);  
 };  
 
+  const handleSkyBoxClick = () => {  
+  setOpenLargeSky(true);  
+};  
+  
+const closeLargeSky = () => {  
+  setOpenLargeSky(false);  
+};  
+  
   const handleSunhorizonBoxClick = () => {  
   setOpenLargeSunhorizon(true);  
 };  
@@ -533,7 +544,29 @@ const closeLargeSunhorizon = () => {
       </div>  
     );  
   }  
-
+if (openLargeSky) {  
+    return (  
+      <div  
+        id="sky-game"  
+        style={{  
+          position: 'relative',  
+          width: '100vw',  
+          height: '100vh',  
+          background: '#87CEEB', // Example background color for Sky  
+          overflow: 'hidden'  
+        }}  
+      >  
+        <button  
+          className="menu-button"  
+          onClick={closeLargeSky}  
+          style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 100 }}  
+        >  
+          Close Sky  
+        </button>  
+        {/* Add sky-specific elements and interactions here */}  
+      </div>  
+    );  
+  }  
       if (openLargeSunhorizon) {  
     return (  
       <div  
@@ -644,21 +677,43 @@ const closeLargeSunhorizon = () => {
               </div>
               <div className="sand" style={{ height: `${sandHeight}px` }}></div>
             </div>
-            <div    className="level-box sunhorizon-box"  
-  onMouseEnter={() => setSunhorizonHovered(true)}  
-  onMouseLeave={() => setSunhorizonHovered(false)}  
-  onClick={handleSunhorizonBoxClick}  
-  style={{ transform: sunhorizonHovered ? 'scale(1.05)' : 'scale(1)', transition: 'transform 0.3s ease' }}  
->  
-  <div className="title-container">  
-    <div className="cover-text" style={{ fontSize: '28px', marginTop: '20px' }}>Sunhorizon</div>  
-  </div>  
-  {/* Add specific elements for Sunhorizon if needed */}  
-</div>  
-          </div>
-        </div>
-      </>
-    );
+
+                 <div  
+          className="level-box sky-box"  
+          onMouseEnter={() => setSkyHovered(true)}  
+          onMouseLeave={() => setSkyHovered(false)}  
+          onClick={handleSkyBoxClick}  
+          style={{ transform: skyHovered ? 'scale(1.05)' : 'scale(1)', transition: 'transform 0.3s ease' }}  
+        >  
+          <div className="title-container">  
+            <div className="cover-text" style={{ fontSize: '28px', marginTop: '20px' }}>The Sky</div>  
+          </div>  
+        </div>  
+      </div>  
+          
+             {/* Sunhorizon spanning all four boxes */}  
+      <div  
+        className="sunhorizon-box"  
+        onMouseEnter={() => setSunhorizonHovered(true)}  
+        onMouseLeave={() => setSunhorizonHovered(false)}  
+        onClick={handleSunhorizonBoxClick}  
+        style={{  
+          width: 'calc(100% - 40px)', // Adjust for padding/margin if needed  
+          margin: '20px 20px 0 20px',  
+          padding: '20px',  
+          backgroundColor: '#333', // Example background color  
+          color: 'white',  
+          textAlign: 'center',  
+          transform: sunhorizonHovered ? 'scale(1.05)' : 'scale(1)',  
+          transition: 'transform 0.3s ease',  
+          cursor: 'pointer'  
+        }}  
+      >  
+        <div style={{ fontSize: '28px' }}>Sunhorizon</div>  
+      </div>  
+    </div>  
+  </>  
+);  
   }
 
   return (
