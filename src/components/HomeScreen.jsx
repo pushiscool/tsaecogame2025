@@ -564,7 +564,6 @@ export default function HomeScreen() {
               </div>
               <div className="sand" style={{ height: `${sandHeight}px` }}></div>
             </div>
-            <div className="level-box"></div>
             <div className="level-box bottom-level"></div>
           </div>
         </div>
