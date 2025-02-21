@@ -474,7 +474,7 @@ export default function HomeScreen() {
           position: 'relative',  
           width: '100vw',  
           height: '100vh',  
-          background: '#8b8f8c', // Example mountain background color  
+           background: 'linear-gradient(to bottom, #a8c0ff, #3f2b96)', // Mountain sky gradient  
           overflow: 'hidden'  
         }}  
       >  
