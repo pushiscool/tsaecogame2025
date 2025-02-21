@@ -500,8 +500,7 @@ export default function HomeScreen() {
         <div className="game-start-screen" style={{ background: 'rgba(0,0,0,0.5)' }}>
           <button className="menu-button" onClick={() => setGameStarted(false)}>Close</button>
           <div className="levels-container">
-       <div  
-  className="level-box ground-box"  
+       <div  className="level-box ground-box"  
   onMouseEnter={() => setGroundHovered(true)}  
   onMouseLeave={() => setGroundHovered(false)}  
   onClick={handleGroundClick}  
@@ -591,36 +590,7 @@ export default function HomeScreen() {
               </div>
               <div className="sand" style={{ height: `${sandHeight}px` }}></div>
             </div>
-            <div  
-  className="level-box sky-box"  
-  onMouseEnter={() => setSkyHovered(true)}  
-  onMouseLeave={() => setSkyHovered(false)}  
-  onClick={handleSkyClick}  
-  style={{ transform: skyHovered ? 'scale(1.05)' : 'scale(1)', transition: 'transform 0.3s ease' }}  
->  
-  <div className="title-container">  
-    <div className="cover-text" style={{ fontSize: '28px', marginTop: '20px' }}>The Sky</div>  
-  </div>  
-  <div className="clouds">  
-    {Array.from({ length: 6 }).map((_, i) => {  
-      const width = 50 + Math.random() * 100;  
-      const height = 20 + Math.random() * 40;  
-      return (  
-        <div  
-          key={i}  
-          className="cloud"  
-          style={{  
-            left: `${Math.random() * 100}%`,  
-            top: `${Math.random() * 50}%`,  
-            width: `${width}px`,  
-            height: `${height}px`,  
-            animationDelay: `${Math.random() * 2}s`  
-          }}  
-        ></div>  
-      );  
-    })}  
-  </div>  
-</div>  
+            <div className="level-box sky-box" ></div>
             <div className="level-box bottom-level"></div>
           </div>
         </div>
