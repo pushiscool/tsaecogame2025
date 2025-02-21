@@ -191,21 +191,6 @@ body {
   background: linear-gradient(45deg, #2E7D32, #1B5E20);
   transform: translateY(-3px);
 }
-.mountain-box {  
-  background: linear-gradient(to top, #a8d5e2, #fffff5); /* Example mountain color */  
-  border-radius: 10px;  
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
-}  
-  
-.title-container {  
-  text-align: center;  
-}  
-  
-.cover-text {  
-  color: #333;  
-  font-weight: bold;  
-}  
-
 .water {
   position: fixed;
   bottom: 0;
