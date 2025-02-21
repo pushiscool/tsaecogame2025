@@ -85,6 +85,45 @@ body {
   from { transform: translateX(0); }
   to { transform: translateX(-15%); }
 }
+
+.mountain-box {  
+  background: linear-gradient(to top, #8b8f8c, #d0e6f0); /* Gradient for mountainous terrain */  
+  border-radius: 10px;  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
+  position: relative;  
+  overflow: hidden;  
+}  
+  
+.mountain-peaks {  
+  position: absolute;  
+  bottom: 10%;  
+  width: 100%;  
+  height: 40%;  
+  display: flex;  
+  justify-content: space-around;  
+  align-items: flex-end;  
+}  
+  
+.peak {  
+  width: 0;  
+  height: 0;  
+  border-left: 20px solid transparent;  
+  border-right: 20px solid transparent;  
+  border-bottom: 40px solid #4e6548; /* Main mountain color */  
+  position: absolute;  
+}  
+  
+.peak:before {  
+  content: '';  
+  position: absolute;  
+  top: -20px;  
+  left: -20px;  
+  width: 0;  
+  height: 0;  
+  border-left: 20px solid transparent;  
+  border-right: 20px solid transparent;  
+  border-bottom: 20px solid #ffffff; /* Snow cap color */  
+}  
 .brick-wall {
   position: fixed;
   bottom: 0;
