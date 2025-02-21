@@ -85,45 +85,6 @@ body {
   from { transform: translateX(0); }
   to { transform: translateX(-15%); }
 }
-
-.mountain-box {  
-  background: linear-gradient(to top, #8b8f8c, #d0e6f0); /* Gradient for mountainous terrain */  
-  border-radius: 10px;  
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
-  position: relative;  
-  overflow: hidden;  
-}  
-  
-.mountain-peaks {  
-  position: absolute;  
-  bottom: 10%;  
-  width: 100%;  
-  height: 40%;  
-  display: flex;  
-  justify-content: space-around;  
-  align-items: flex-end;  
-}  
-  
-.peak {  
-  width: 0;  
-  height: 0;  
-  border-left: 20px solid transparent;  
-  border-right: 20px solid transparent;  
-  border-bottom: 40px solid #4e6548; /* Main mountain color */  
-  position: absolute;  
-}  
-  
-.peak:before {  
-  content: '';  
-  position: absolute;  
-  top: -20px;  
-  left: -20px;  
-  width: 0;  
-  height: 0;  
-  border-left: 20px solid transparent;  
-  border-right: 20px solid transparent;  
-  border-bottom: 20px solid #ffffff; /* Snow cap color */  
-}  
 .brick-wall {
   position: fixed;
   bottom: 0;
@@ -309,7 +270,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.15);
+  background: rgba(0,0,0,0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -324,23 +285,6 @@ body {
   height: 100%;
   background: transparent;
 }
-.bubbles {
-  position: absolute;
-  width: 100%;
-  height: calc(100% - 30px);
-  pointer-events: none;
-  z-index: 1;
-}
-.bubble {
-  position: absolute;
-  background: rgba(255,255,255,0.7);
-  border-radius: 50%;
-  animation: bubble 4s infinite ease-in;
-}
-@keyframes bubble {
-  0% { transform: translate(0, 0) scale(0.5); opacity: 1; }
-  100% { transform: translate(20px, -150px) scale(1); opacity: 0; }
-}
 .sand {
   position: absolute;
   bottom: 0;
@@ -348,7 +292,7 @@ body {
   width: 100%;
   background: #f4a460;
   z-index: 2;
-  animation: roughSand 3s infinite ease-in-out;
+  animation: roughSand 9s infinite ease-in-out;
 }
 @keyframes roughSand {
   0% { clip-path: polygon(0 90%, 20% 85%, 40% 95%, 60% 80%, 80% 90%, 100% 85%, 100% 100%, 0% 100%); }
@@ -383,22 +327,6 @@ body {
   position: relative;
   overflow: hidden;
 }
-.level-box.water-box .bubbles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: calc(100% - 30px);
-  pointer-events: none;
-  z-index: 1;
-}
-.mountain-box {  
-  background: linear-gradient(to top, #a8d5e2, #ffffff); /* Example mountain color */  
-  border-radius: 10px;  
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
-}  
-
-
 .level-box.water-box .sand {
   position: absolute;
   bottom: 0;
@@ -407,13 +335,48 @@ body {
   height: 30px;
   background: #f4a460;
   z-index: 2;
-  animation: roughSand 3s infinite ease-in-out;
+  animation: roughSand 9s infinite ease-in-out;
 }
 .level-box.bottom-level {
   grid-column: 1 / -1;
 }
 
-@keyframes bubbleRise {
-  0% { transform: translateY(0); opacity: 0.6; }
-  100% { transform: translateY(-120vh); opacity: 0; }
+/* Bubble styling for the sea level */
+.bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 900;
+}
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.7);
+  width: 20px;
+  height: 20px;
+}
+
+/* Pause overlay styling */
+.pause-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.pause-overlay h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 48px;
+  color: #fff;
+  margin-bottom: 40px;
+}
+.pause-overlay .menu-button {
+  margin: 10px;
 }
