@@ -464,6 +464,32 @@ export default function HomeScreen() {
         </div>
       );
     }
+    
+    if (gameStarted) {  
+      if (openLargeMountain) {  
+        return (  
+          <div  
+            id="mountain-game"  
+            style={{  
+              position: 'relative',  
+              width: '100vw',  
+              height: '100vh',  
+              background: '#8b8f8c', // Example mountain background color  
+              overflow: 'hidden'  
+            }}  
+          >  
+            <button  
+              className="menu-button"  
+              onClick={closeLargeMountain}  
+              style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 100 }}  
+            >  
+              Close Mountain  
+            </button>  
+            {/* Add mountain-specific elements and interactions here */}  
+          </div>  
+        );  
+      }  
+    
     return (
       <>
         <div className="game-start-screen" style={{ background: 'rgba(0,0,0,0.5)' }}>
