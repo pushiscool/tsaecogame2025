@@ -30,7 +30,15 @@ export default function HomeScreen() {
   const [mountainHovered, setMountainHovered] = useState(false);  
   const [openLargeMountain, setOpenLargeMountain] = useState(false);  
   const closeLargeMountain = () => setOpenLargeMountain(false);  
-
+const [openLargeGround, setOpenLargeGround] = useState(false); // New state for Grounds  
+const [groundHovered, setGroundHovered] = useState(false); // New hover state for Grounds  
+  const handleGroundBoxClick = () => {  
+  setOpenLargeGround(true);  
+};  
+  
+const closeLargeGround = () => {  
+  setOpenLargeGround(false);  
+};  
   const player1Ref = useRef(null);
   const player2Ref = useRef(null);
   const brickWallRef = useRef(null);
@@ -500,7 +508,18 @@ export default function HomeScreen() {
         <div className="game-start-screen" style={{ background: 'rgba(0,0,0,0.5)' }}>
           <button className="menu-button" onClick={() => setGameStarted(false)}>Close</button>
           <div className="levels-container">
-                        <div className="level-box"></div>
+                     
+            <div   className="level-box ground-box"  
+          onMouseEnter={() => setGroundHovered(true)}  
+          onMouseLeave={() => setGroundHovered(false)}  
+          onClick={handleGroundBoxClick}  
+          style={{ transform: groundHovered ? 'scale(1.05)' : 'scale(1)', transition: 'transform 0.3s ease' }}  >  
+          <div className="title-container">  
+            <div className="cover-text" style={{ fontSize: '28px', marginTop: '20px' }}>The Grounds</div>  
+          </div>  
+          {/* Add specific elements for Grounds if needed */}  
+        </div>  
+            
    <div className="level-box mountain-box"  
      onMouseEnter={() => setMountainHovered(true)}  
      onMouseLeave={() => setMountainHovered(false)}  
@@ -533,7 +552,6 @@ export default function HomeScreen() {
     })}  
   </div>  
 </div>  
-            <div className="level-box"></div>
             <div
               className="level-box water-box"
               onMouseEnter={() => setWaterHovered(true)}
