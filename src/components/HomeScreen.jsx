@@ -497,6 +497,31 @@ const closeLargeGround = () => {
       </div>  
     );  
   }  
+
+       if (openLargeGround) {  
+    return (  
+      <div  
+        id="ground-game"  
+        style={{  
+          position: 'relative',  
+          width: '100vw',  
+          height: '100vh',  
+          background: '#8B4513', // Example background color for Grounds  
+          overflow: 'hidden'  
+        }}  
+      >  
+        <button  
+          className="menu-button"  
+          onClick={closeLargeGround}  
+          style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 100 }}  
+        >  
+          Close Grounds  
+        </button>  
+        {/* Add grounds-specific elements and interactions here */}  
+      </div>  
+    );  
+  }  
+      
   // Continue with other game logic...  
 }  
 
