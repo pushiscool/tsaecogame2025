@@ -500,6 +500,7 @@ export default function HomeScreen() {
         <div className="game-start-screen" style={{ background: 'rgba(0,0,0,0.5)' }}>
           <button className="menu-button" onClick={() => setGameStarted(false)}>Close</button>
           <div className="levels-container">
+                        <div className="level-box"></div>
    <div className="level-box mountain-box"  
      onMouseEnter={() => setMountainHovered(true)}  
      onMouseLeave={() => setMountainHovered(false)}  
