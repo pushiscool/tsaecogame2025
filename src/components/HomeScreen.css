@@ -353,6 +353,13 @@ body {
   pointer-events: none;
   z-index: 1;
 }
+.mountain-box {  
+  background: linear-gradient(to top, #a8d5e2, #ffffff); /* Example mountain color */  
+  border-radius: 10px;  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
+}  
+
+
 .level-box.water-box .sand {
   position: absolute;
   bottom: 0;
