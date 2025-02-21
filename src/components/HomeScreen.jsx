@@ -31,7 +31,10 @@ export default function HomeScreen() {
   const [openLargeMountain, setOpenLargeMountain] = useState(false);  
   const closeLargeMountain = () => setOpenLargeMountain(false);  
 const [openLargeGround, setOpenLargeGround] = useState(false); // New state for Grounds  
-const [groundHovered, setGroundHovered] = useState(false); // New hover state for Grounds  
+const [groundHovered, setGroundHovered] = useState(false); // New hover state for Grounds 
+  const [openLargeSunhorizon, setOpenLargeSunhorizon] = useState(false); // New state for Sunhorizon  
+const [sunhorizonHovered, setSunhorizonHovered] = useState(false); // New hover state for Sunhorizon  
+  
   const handleGroundBoxClick = () => {  
   setOpenLargeGround(true);  
 };  
@@ -39,6 +42,15 @@ const [groundHovered, setGroundHovered] = useState(false); // New hover state fo
 const closeLargeGround = () => {  
   setOpenLargeGround(false);  
 };  
+
+  const handleSunhorizonBoxClick = () => {  
+  setOpenLargeSunhorizon(true);  
+};  
+  
+const closeLargeSunhorizon = () => {  
+  setOpenLargeSunhorizon(false);  
+};  
+  
   const player1Ref = useRef(null);
   const player2Ref = useRef(null);
   const brickWallRef = useRef(null);
@@ -521,6 +533,31 @@ const closeLargeGround = () => {
       </div>  
     );  
   }  
+
+      if (openLargeSunhorizon) {  
+    return (  
+      <div  
+        id="sunhorizon-game"  
+        style={{  
+          position: 'relative',  
+          width: '100vw',  
+          height: '100vh',  
+          background: '#FFD700', // Example background color for Sunhorizon  
+          overflow: 'hidden'  
+        }}  
+      >  
+        <button  
+          className="menu-button"  
+          onClick={closeLargeSunhorizon}  
+          style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 100 }}  
+        >  
+          Close Sunhorizon  
+        </button>  
+        {/* Add sunhorizon-specific elements and interactions here */}  
+      </div>  
+    );  
+  }  
+      
       
   // Continue with other game logic...  
 }  
@@ -607,7 +644,17 @@ const closeLargeGround = () => {
               </div>
               <div className="sand" style={{ height: `${sandHeight}px` }}></div>
             </div>
-            <div className="level-box bottom-level"></div>
+            <div    className="level-box sunhorizon-box"  
+  onMouseEnter={() => setSunhorizonHovered(true)}  
+  onMouseLeave={() => setSunhorizonHovered(false)}  
+  onClick={handleSunhorizonBoxClick}  
+  style={{ transform: sunhorizonHovered ? 'scale(1.05)' : 'scale(1)', transition: 'transform 0.3s ease' }}  
+>  
+  <div className="title-container">  
+    <div className="cover-text" style={{ fontSize: '28px', marginTop: '20px' }}>Sunhorizon</div>  
+  </div>  
+  {/* Add specific elements for Sunhorizon if needed */}  
+</div>  
           </div>
         </div>
       </>
