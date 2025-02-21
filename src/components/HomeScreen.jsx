@@ -42,7 +42,40 @@ export default function HomeScreen() {
   const initialY = window.innerHeight - 200 - playerHeight;
   const p1 = useRef({ pos: { x: initialX, y: initialY }, vel: { x: 0, y: 0 }, grounded: true });
   const p2 = useRef({ pos: { x: initialX, y: initialY }, vel: { x: 0, y: 0 }, grounded: true });
+  
+  const [openSunHorizon, setOpenSunHorizon] = useState(false);  
+  
+  const handleSunHorizonClick = () => {  
+    setOpenSunHorizon(true);  
+  };  
+  
+  const closeSunHorizon = () => {  
+    setOpenSunHorizon(false);  
+  };  
 
+const sunRayCount = 12; // Number of rays  
+  const sunRays = Array.from({ length: sunRayCount }, (_, i) => {  
+    const angle = i * (360 / sunRayCount);  
+    return (  
+      <div  
+        key={i}  
+        className="sun-horizon-ray"  
+        style={{  
+          transform: `rotate(${angle}deg) translateX(60px)`,  
+          width: '50px',  
+          height: '10px',  
+          background: '#fff',  
+          position: 'absolute',  
+          top: '50%',  
+          left: '50%',  
+          transformOrigin: '0 0',  
+          animation: 'rotateRay 5s linear infinite',  
+        }}  
+      />  
+    );  
+  });  
+
+  
   useEffect(() => {
     if (player1Ref.current) {
       player1Ref.current.style.left = `${p1.current.pos.x}px`;
@@ -489,7 +522,33 @@ export default function HomeScreen() {
       </div>  
     );  
   }  
-  // Continue with other game logic...  
+  // Continue with other game logic...
+      if (gameStarted) {  
+  if (openSunHorizon) {  
+    return (  
+      <div  
+        id="sun-horizon-game"  
+        style={{  
+          position: 'relative',  
+          width: '100vw',  
+          height: '100vh',  
+          background: 'linear-gradient(to top, #ff8c00, #ffe600)', // Sun Horizon gradient  
+          overflow: 'hidden'  
+        }}  
+      >  
+        <button  
+          className="menu-button"  
+          onClick={closeSunHorizon}  
+          style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 100 }}  
+        >  
+          Close Sun Horizon  
+        </button>  
+        {/* Add sun-specific elements and interactions here */}  
+      </div>  
+    );  
+  }  
+}  
+      
 }  
 
 
@@ -564,7 +623,24 @@ export default function HomeScreen() {
               <div className="sand" style={{ height: `${sandHeight}px` }}></div>
             </div>
             <div className="level-box"></div>
-            <div className="level-box bottom-level"></div>
+             <div className="level-box sun-horizon-box"  
+             onMouseEnter={() => setSunHovered(true)}  
+             onMouseLeave={() => setSunHovered(false)}  
+             onClick={handleSunHorizonClick}  
+             style={{ transform: sunHovered ? 'scale(1.05)' : 'scale(1)', transition: 'transform 0.3s ease' }}>  
+          <div className="title-container">  
+            <div className="cover-text" style={{ fontSize: '28px', marginTop: '20px' }}>Sun Horizon</div>  
+          </div>  
+          {/* Add decorative elements like rays */}  
+          <div className="sun-rays-container">{sunRays}</div>  
+        </div>  
+  
+        {/* Other potential level boxes would be placed above this line */}  
+          
+      </div>  
+    </div>  
+  </>  
+);  
           </div>
         </div>
       </>
