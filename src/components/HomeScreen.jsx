@@ -27,6 +27,9 @@ export default function HomeScreen() {
   const [bubbles, setBubbles] = useState([]);
   const [gameObjects, setGameObjects] = useState([]);
   const [playerScale, setPlayerScale] = useState(1);
+  const [mountainHovered, setMountainHovered] = useState(false);  
+  const [openLargeMountain, setOpenLargeMountain] = useState(false);  
+  const closeLargeMountain = () => setOpenLargeMountain(false);  
 
   const player1Ref = useRef(null);
   const player2Ref = useRef(null);
@@ -466,7 +469,15 @@ export default function HomeScreen() {
         <div className="game-start-screen" style={{ background: 'rgba(0,0,0,0.5)' }}>
           <button className="menu-button" onClick={() => setGameStarted(false)}>Close</button>
           <div className="levels-container">
-            <div className="level-box"></div>
+          <div className="level-box mountain-box"  
+              onMouseEnter={() => setMountainHovered(true)}  
+              onMouseLeave={() => setMountainHovered(false)}  
+              onClick={() => setOpenLargeMountain(true)}  
+              style={{ transform: mountainHovered ? 'scale(1.05)' : 'scale(1)', transition: 'transform 0.3s ease' }}>  
+          <div className="title-container">  
+            <div className="cover-text" style={{ fontSize: '28px', marginTop: '20px' }}>The Mountain</div>  
+          </div>  
+        </div>  
             <div className="level-box"></div>
             <div
               className="level-box water-box"
